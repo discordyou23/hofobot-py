@@ -30,7 +30,7 @@ apiai_token = os.environ['api_ai']
 bot_token = os.environ['BOT_TOKEN']
 An = Pymoe.Anilist()
 
-bot = commands.Bot(command_prefix='s.')  # SETUP BOT COMMAND PREFIX
+bot = commands.Bot(command_prefix='W')  # SETUP BOT COMMAND PREFIX
 
 
 @bot.event
