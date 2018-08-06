@@ -21,7 +21,6 @@ from discord.utils import get
 
 
 #GETTING API KEYS FROM HEROKU
-apiai_token = os.environ['api_ai']
 bot_token = os.environ['BOT_TOKEN']
 An = Pymoe.Anilist()
 
