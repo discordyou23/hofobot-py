@@ -21,7 +21,6 @@ from discord.utils import get
 
 
 #GETTING API KEYS FROM HEROKU
-wu_key = os.environ['WU_API']
 owm = os.environ['open_weather']
 img_api = os.environ['img_api']
 apiai_token = os.environ['api_ai']
