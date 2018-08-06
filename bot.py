@@ -867,7 +867,6 @@ async def rank(ctx):
 
 @bot.command(pass_context=True)
 async def urban(ctx):
-    """USES URBAN DICT TO FIND DEFINITION OF WORDS. EX: s.urban neko"""
     word = ctx.message.content[7:]
     link = 'http://api.urbandictionary.com/v0/define?term={}'.format(word)
     rq_link = rq.get(link).text
