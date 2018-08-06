@@ -1,1 +1,1 @@
-worker: python hofobot.py
+worker: python bot.py
