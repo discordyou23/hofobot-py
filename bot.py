@@ -32,7 +32,7 @@ async def on_ready():
 
     """WHEN BOT IS READY, PRINT MESSAGE IN TERMINAL"""
     print("I am running on " + bot.user.name)
-    games=['Bread Puppies','Jump Rope Kitten: Nyawatobi','TripTrap','Potion Maker','Crusaders Quest','My Waffle Maker','AfroCat','Hello Kitty','Halo 4','My Cat Album','LINE: Disney Tsum Tsum','Cat Room','Alphabear','Play With Cats','My Dog Album','Giant Turnip Game','MEOW MEOW STAR ACRES','Patchmania','Tiny Sheep','Hello Kitty World – Fun Park Game']
+    games=['Whelp-W BOT-English']
 #     while True:
 #         global random_status_game
 #         random_status_game=random.choice(games)
@@ -238,7 +238,6 @@ async def on_message(message):
 
 @bot.command(pass_context=True)
 async def tts(ctx):
-    """REPEATS WHATEVER THE USER SAYS USING TEXT TO SPEECH"""
     msg_id = ctx.message
     repeat = ctx.message.content[5:]
     await bot.say(repeat, tts=True)
@@ -248,7 +247,6 @@ async def tts(ctx):
 
 @bot.command(pass_context=True)
 async def say(ctx):
-    """REPEATS WHATEVER THE USER SAYS"""
     msg_id = ctx.message
     repeat = ctx.message.content[5:]
     await bot.say(repeat)
@@ -283,7 +281,7 @@ async def say(ctx):
 
 # @bot.command(pass_context=True)
 # async def check(ctx, user: discord.Member):
-#     """CHECKS ANOTHER USER'S CREDITS. Ex: s.check @kurusaki"""
+#     """CHECKS ANOTHER USER'S CREDITS. Ex: s.check @W Bot English"""
 #     try:
 
 #         tax = 50
@@ -437,7 +435,6 @@ async def say(ctx):
 
 @bot.command(pass_context=True)
 async def dog(ctx):
-    """GENERATES A RANDOM PICTURE OF A DOG"""
     try:
         source = 'https://random.dog/'
         page = urllib.request.urlopen(source)
@@ -470,8 +467,7 @@ async def dog(ctx):
 
 @bot.command(pass_context=True)
 async def logout(ctx):
-    """RESTARTS THE BOT IN HEROKU SERVER, BUT ENDS IN TERMINAL"""
-    creator_id = 185181025104560128
+    creator_id = 475811540487110666
     sender_id = ctx.message.author.id
     send_id = int(sender_id)
     if send_id == creator_id:
@@ -483,14 +479,12 @@ async def logout(ctx):
 
 @bot.command(pass_context=True)
 async def dice(ctx):
-    """GENERATES A RANDOM BETWEEN 1-6"""
     r = random.choice(range(1, 7))
     await bot.say("**{}**".format(r))
 
 
 @bot.command(pass_context=True)
 async def game(ctx):
-    """CHANGES THE PLAYING STATUS OF THE BOT. EX: s.game OSU!"""
     mesg = ctx.message.content[6:]
     await bot.change_presence(game=discord.Game(name=mesg))
 
@@ -503,7 +497,6 @@ async def info(ctx, user: discord.Member):
 
 @bot.command(pass_context=True)
 async def catfact(ctx):
-    """SENDS YOU A RANDOM FACT ABOUT CATS. EX: s.catfact"""
     url = 'https://cat-fact.herokuapp.com/facts/random?amount=1'
     rq_url = rq.get(url).text
     rq_json = json.loads(rq_url)
@@ -512,7 +505,6 @@ async def catfact(ctx):
 
 @bot.command(pass_context=True)
 async def randomanime(ctx):
-    """GENERATES A RANDOM ANIME TITLE WITH 10 SECOND COOL DOWN. EX: s.randomanime"""
     ra1 = rq.get(
         'https://private-anon-589c768a77-popcornofficial.apiary-proxy.com/random/anime')
     ra2 = rq.get('https://tv-v2.api-fetch.website/random/anime')
@@ -532,7 +524,6 @@ async def randomanime(ctx):
 
 @bot.command(pass_context=True)
 async def randommovie(ctx):
-    """GENERATES A RANDOM MOVIE TITLE. EX: s.randommovie"""
     movie = rq.get('https://tv-v2.api-fetch.website/random/movie')
     if movie.status_code == 200:
         rest = movie.text
@@ -559,12 +550,11 @@ async def randomshow(ctx):
 @bot.command(pass_context=True)
 async def invite(ctx):
     """GET AN INVITE LINK FOR THIS DISCORD BOT. EX: s.invite"""
-    await bot.say("Here is the invite link for {}\n{}".format(bot.user.name, 'https://discordapp.com/oauth2/authorize?client_id=403402614454353941&scope=bot'))
+    await bot.say("Here is the invite link for {}\n{}".format(bot.user.name, 'https://discordapp.com/oauth2/authorize?client_id=475811540487110666&scope=bot&permissions=8'))
 
 
 @bot.command(pass_context=True)
 async def weather(ctx):
-    """GET THE WEATHER IN YOUR CITY. EX: s.weather austin"""
     city_state = ctx.message.content[10:]
     t = u"\u00b0"
     try:
@@ -584,7 +574,6 @@ async def weather(ctx):
 
 @bot.command(pass_context=True, case_insensitive=True)
 async def cat(ctx):
-    """GET A RANDOM PICTURE OF A CAT. EX: s.cat"""
     pictures = range(1, 1600)
     num = random.choice(pictures)
     url = 'https://random.cat/view/{}'.format(num)
@@ -598,7 +587,6 @@ async def cat(ctx):
 
 @bot.command(pass_context=True)
 async def img(ctx):
-    """FAILED IMAGE GENERATOR BY KEYWORDS s.img dog"""
     query = ctx.message.content[5:]
     url = 'http://version1.api.memegenerator.net//Generators_Search?q={}&apiKey={}'.format(
         query, img_api)
@@ -609,7 +597,6 @@ async def img(ctx):
 
 @bot.command(pass_context=True)
 async def al(ctx):
-    """SEARCH FOR ANIME WITH Anilist. EX: s.al School Rumble"""
     try:
         new_msg = ctx.message.content[4:]
         search = An.search.anime(new_msg)
@@ -647,7 +634,6 @@ async def al(ctx):
             
 @bot.command(pass_context=True)
 async def neko(ctx):
-    """GENERATES A RANDOM NEKO GIRL PICTURE. Ex: s.neko"""
     url = 'https://nekos.brussell.me/api/v1/random/image?count=1&nsfw=false'
     r=rq.get(url).text
     r_json=json.loads(r)
@@ -708,10 +694,8 @@ async def neko(ctx):
 
 @bot.command(pass_context=True)
 async def summoner(ctx):
-    """GET BASIC INFO OF A GIVEN SUMMONER. EX: s.summoner Charming Mother"""
     try:
         name = ctx.message.content[10:]
-        """GETS THE SUMMONER'S BASIC INFORMATION; NAME,LEVEL"""
         link = rq.get(
             "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/{}?api_key={}".format(name, api)).text
         rq_json = json.loads(link)
@@ -722,7 +706,6 @@ async def summoner(ctx):
 
 @bot.command(pass_context=True)
 async def lore(ctx):
-    """GETS THE LORE OF A CHAMPION GIVEN. EX: s.lore Ashe"""
     msg = ctx.message.content[6:]
     new_msg=msg.lower()
     champ = rq.get('https://na1.api.riotgames.com/lol/static-data/v3/champions/{}?locale=en_US&champData=lore&api_key={}'.format(
@@ -733,7 +716,6 @@ async def lore(ctx):
 
 @bot.command(pass_context=True)
 async def champmastery(ctx):
-    """GET A CHAMP MASTERY OF A SUMMONER. EX: s.champmastery Charming Mother,Vayne"""
     msg = ctx.message.content[14:]
     bett = msg.find(",")
     summoner = msg[0:bett]
@@ -757,7 +739,6 @@ async def champmastery(ctx):
 
 @bot.command(pass_context=True)
 async def masterytotal(ctx):
-    """GETS THE SUMMONER'S TOTAL MASTERY POINTS. EX: s.masterytotal Charming Mother"""
     name = ctx.message.content[14:]
     link = rq.get(
         "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/{}?api_key={}".format(name, api)).text
